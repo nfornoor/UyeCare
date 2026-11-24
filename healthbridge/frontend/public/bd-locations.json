@@ -1,0 +1,295 @@
+{
+  "_meta": "Bangladesh administrative divisions. Format: divisions > districts > upazilas. Extend upazilas/unions per district as needed.",
+  "divisions": [
+    {
+      "id": "1", "name": "Dhaka", "bn_name": "ঢাকা",
+      "districts": [
+        { "id": "1",  "name": "Dhaka",       "bn_name": "ঢাকা",       "upazilas": [
+          { "id": "1",  "name": "Dhanmondi",   "bn_name": "ধানমন্ডি" },
+          { "id": "2",  "name": "Gulshan",     "bn_name": "গুলশান" },
+          { "id": "3",  "name": "Mirpur",      "bn_name": "মিরপুর" },
+          { "id": "4",  "name": "Uttara",      "bn_name": "উত্তরা" },
+          { "id": "5",  "name": "Mohammadpur", "bn_name": "মোহাম্মদপুর" },
+          { "id": "6",  "name": "Tejgaon",     "bn_name": "তেজগাঁও" },
+          { "id": "7",  "name": "Ramna",       "bn_name": "রমনা" },
+          { "id": "8",  "name": "Motijheel",   "bn_name": "মতিঝিল" },
+          { "id": "9",  "name": "Savar",       "bn_name": "সাভার" }
+        ] },
+        { "id": "2",  "name": "Faridpur",    "bn_name": "ফরিদপুর",    "upazilas": [
+          { "id": "1", "name": "Faridpur Sadar", "bn_name": "ফরিদপুর সদর" },
+          { "id": "2", "name": "Bhanga",         "bn_name": "ভাঙ্গা" },
+          { "id": "3", "name": "Boalmari",       "bn_name": "বোয়ালমারী" }
+        ] },
+        { "id": "3",  "name": "Gazipur",     "bn_name": "গাজীপুর",    "upazilas": [
+          { "id": "1", "name": "Gazipur Sadar", "bn_name": "গাজীপুর সদর" },
+          { "id": "2", "name": "Tongi",         "bn_name": "টঙ্গী" },
+          { "id": "3", "name": "Kaliakair",     "bn_name": "কালিয়াকৈর" },
+          { "id": "4", "name": "Sreepur",       "bn_name": "শ্রীপুর" }
+        ] },
+        { "id": "4",  "name": "Gopalganj",   "bn_name": "গোপালগঞ্জ",  "upazilas": [
+          { "id": "1", "name": "Gopalganj Sadar", "bn_name": "গোপালগঞ্জ সদর" },
+          { "id": "2", "name": "Tungipara",       "bn_name": "টুঙ্গিপাড়া" },
+          { "id": "3", "name": "Kotalipara",      "bn_name": "কোটালীপাড়া" }
+        ] },
+        { "id": "5",  "name": "Kishoreganj", "bn_name": "কিশোরগঞ্জ",  "upazilas": [
+          { "id": "1", "name": "Kishoreganj Sadar", "bn_name": "কিশোরগঞ্জ সদর" },
+          { "id": "2", "name": "Bhairab",           "bn_name": "ভৈরব" },
+          { "id": "3", "name": "Karimganj",         "bn_name": "করিমগঞ্জ" }
+        ] },
+        { "id": "6",  "name": "Madaripur",   "bn_name": "মাদারীপুর",  "upazilas": [
+          { "id": "1", "name": "Madaripur Sadar", "bn_name": "মাদারীপুর সদর" },
+          { "id": "2", "name": "Shibchar",        "bn_name": "শিবচর" }
+        ] },
+        { "id": "7",  "name": "Manikganj",   "bn_name": "মানিকগঞ্জ",  "upazilas": [
+          { "id": "1", "name": "Manikganj Sadar", "bn_name": "মানিকগঞ্জ সদর" },
+          { "id": "2", "name": "Saturia",         "bn_name": "সাটুরিয়া" }
+        ] },
+        { "id": "8",  "name": "Munshiganj",  "bn_name": "মুন্সিগঞ্জ",  "upazilas": [
+          { "id": "1", "name": "Munshiganj Sadar", "bn_name": "মুন্সিগঞ্জ সদর" },
+          { "id": "2", "name": "Sreenagar",        "bn_name": "শ্রীনগর" }
+        ] },
+        { "id": "9",  "name": "Narayanganj", "bn_name": "নারায়ণগঞ্জ", "upazilas": [
+          { "id": "1", "name": "Narayanganj Sadar", "bn_name": "নারায়ণগঞ্জ সদর" },
+          { "id": "2", "name": "Bandar",            "bn_name": "বন্দর" },
+          { "id": "3", "name": "Sonargaon",         "bn_name": "সোনারগাঁও" }
+        ] },
+        { "id": "10", "name": "Narsingdi",   "bn_name": "নরসিংদী",   "upazilas": [
+          { "id": "1", "name": "Narsingdi Sadar", "bn_name": "নরসিংদী সদর" },
+          { "id": "2", "name": "Belabo",          "bn_name": "বেলাবো" }
+        ] },
+        { "id": "11", "name": "Rajbari",     "bn_name": "রাজবাড়ী",   "upazilas": [
+          { "id": "1", "name": "Rajbari Sadar", "bn_name": "রাজবাড়ী সদর" },
+          { "id": "2", "name": "Goalandaghat", "bn_name": "গোয়ালন্দ ঘাট" }
+        ] },
+        { "id": "12", "name": "Shariatpur",  "bn_name": "শরীয়তপুর",  "upazilas": [
+          { "id": "1", "name": "Shariatpur Sadar", "bn_name": "শরীয়তপুর সদর" }
+        ] },
+        { "id": "13", "name": "Tangail",     "bn_name": "টাঙ্গাইল",   "upazilas": [
+          { "id": "1", "name": "Tangail Sadar", "bn_name": "টাঙ্গাইল সদর" },
+          { "id": "2", "name": "Kalihati",       "bn_name": "কালিহাতী" }
+        ] }
+      ]
+    },
+    {
+      "id": "2", "name": "Chittagong", "bn_name": "চট্টগ্রাম",
+      "districts": [
+        { "id": "1",  "name": "Chittagong",   "bn_name": "চট্টগ্রাম",   "upazilas": [
+          { "id": "1", "name": "Kotwali",     "bn_name": "কোতোয়ালী" },
+          { "id": "2", "name": "Pahartali",   "bn_name": "পাহাড়তলী" },
+          { "id": "3", "name": "Panchlaish",  "bn_name": "পাঁচলাইশ" },
+          { "id": "4", "name": "Halishahar",  "bn_name": "হালিশহর" },
+          { "id": "5", "name": "Patenga",     "bn_name": "পতেঙ্গা" },
+          { "id": "6", "name": "Sitakunda",   "bn_name": "সীতাকুণ্ড" }
+        ] },
+        { "id": "2",  "name": "Bandarban",    "bn_name": "বান্দরবান",  "upazilas": [
+          { "id": "1", "name": "Bandarban Sadar", "bn_name": "বান্দরবান সদর" },
+          { "id": "2", "name": "Thanchi",         "bn_name": "থানচি" }
+        ] },
+        { "id": "3",  "name": "Brahmanbaria", "bn_name": "ব্রাহ্মণবাড়িয়া", "upazilas": [
+          { "id": "1", "name": "Brahmanbaria Sadar", "bn_name": "ব্রাহ্মণবাড়িয়া সদর" },
+          { "id": "2", "name": "Akhaura",            "bn_name": "আখাউড়া" }
+        ] },
+        { "id": "4",  "name": "Chandpur",     "bn_name": "চাঁদপুর",     "upazilas": [
+          { "id": "1", "name": "Chandpur Sadar", "bn_name": "চাঁদপুর সদর" },
+          { "id": "2", "name": "Faridganj",     "bn_name": "ফরিদগঞ্জ" }
+        ] },
+        { "id": "5",  "name": "Comilla",      "bn_name": "কুমিল্লা",     "upazilas": [
+          { "id": "1", "name": "Comilla Sadar", "bn_name": "কুমিল্লা সদর" },
+          { "id": "2", "name": "Daudkandi",    "bn_name": "দাউদকান্দি" }
+        ] },
+        { "id": "6",  "name": "Cox's Bazar",  "bn_name": "কক্সবাজার",   "upazilas": [
+          { "id": "1", "name": "Cox's Bazar Sadar", "bn_name": "কক্সবাজার সদর" },
+          { "id": "2", "name": "Teknaf",            "bn_name": "টেকনাফ" },
+          { "id": "3", "name": "Ukhia",             "bn_name": "উখিয়া" }
+        ] },
+        { "id": "7",  "name": "Feni",         "bn_name": "ফেনী",       "upazilas": [
+          { "id": "1", "name": "Feni Sadar", "bn_name": "ফেনী সদর" },
+          { "id": "2", "name": "Sonagazi",   "bn_name": "সোনাগাজী" }
+        ] },
+        { "id": "8",  "name": "Khagrachhari", "bn_name": "খাগড়াছড়ি",  "upazilas": [
+          { "id": "1", "name": "Khagrachhari Sadar", "bn_name": "খাগড়াছড়ি সদর" }
+        ] },
+        { "id": "9",  "name": "Lakshmipur",   "bn_name": "লক্ষ্মীপুর",   "upazilas": [
+          { "id": "1", "name": "Lakshmipur Sadar", "bn_name": "লক্ষ্মীপুর সদর" }
+        ] },
+        { "id": "10", "name": "Noakhali",     "bn_name": "নোয়াখালী",   "upazilas": [
+          { "id": "1", "name": "Noakhali Sadar", "bn_name": "নোয়াখালী সদর" },
+          { "id": "2", "name": "Chatkhil",       "bn_name": "চাটখিল" }
+        ] },
+        { "id": "11", "name": "Rangamati",    "bn_name": "রাঙ্গামাটি",  "upazilas": [
+          { "id": "1", "name": "Rangamati Sadar", "bn_name": "রাঙ্গামাটি সদর" },
+          { "id": "2", "name": "Kaptai",          "bn_name": "কাপ্তাই" }
+        ] }
+      ]
+    },
+    {
+      "id": "3", "name": "Rajshahi", "bn_name": "রাজশাহী",
+      "districts": [
+        { "id": "1", "name": "Rajshahi",   "bn_name": "রাজশাহী",   "upazilas": [
+          { "id": "1", "name": "Boalia",   "bn_name": "বোয়ালিয়া" },
+          { "id": "2", "name": "Motihar",  "bn_name": "মতিহার" },
+          { "id": "3", "name": "Paba",     "bn_name": "পবা" }
+        ] },
+        { "id": "2", "name": "Bogra",      "bn_name": "বগুড়া",      "upazilas": [
+          { "id": "1", "name": "Bogra Sadar", "bn_name": "বগুড়া সদর" },
+          { "id": "2", "name": "Sherpur",     "bn_name": "শেরপুর" }
+        ] },
+        { "id": "3", "name": "Joypurhat",  "bn_name": "জয়পুরহাট",   "upazilas": [
+          { "id": "1", "name": "Joypurhat Sadar", "bn_name": "জয়পুরহাট সদর" }
+        ] },
+        { "id": "4", "name": "Naogaon",    "bn_name": "নওগাঁ",      "upazilas": [
+          { "id": "1", "name": "Naogaon Sadar", "bn_name": "নওগাঁ সদর" }
+        ] },
+        { "id": "5", "name": "Natore",     "bn_name": "নাটোর",      "upazilas": [
+          { "id": "1", "name": "Natore Sadar", "bn_name": "নাটোর সদর" }
+        ] },
+        { "id": "6", "name": "Chapainawabganj", "bn_name": "চাঁপাইনবাবগঞ্জ", "upazilas": [
+          { "id": "1", "name": "Chapainawabganj Sadar", "bn_name": "চাঁপাইনবাবগঞ্জ সদর" }
+        ] },
+        { "id": "7", "name": "Pabna",      "bn_name": "পাবনা",      "upazilas": [
+          { "id": "1", "name": "Pabna Sadar", "bn_name": "পাবনা সদর" },
+          { "id": "2", "name": "Ishwardi",    "bn_name": "ঈশ্বরদী" }
+        ] },
+        { "id": "8", "name": "Sirajganj",  "bn_name": "সিরাজগঞ্জ",  "upazilas": [
+          { "id": "1", "name": "Sirajganj Sadar", "bn_name": "সিরাজগঞ্জ সদর" }
+        ] }
+      ]
+    },
+    {
+      "id": "4", "name": "Khulna", "bn_name": "খুলনা",
+      "districts": [
+        { "id": "1",  "name": "Khulna",    "bn_name": "খুলনা",    "upazilas": [
+          { "id": "1", "name": "Khalishpur", "bn_name": "খালিশপুর" },
+          { "id": "2", "name": "Daulatpur",  "bn_name": "দৌলতপুর" },
+          { "id": "3", "name": "Khan Jahan Ali", "bn_name": "খান জাহান আলী" }
+        ] },
+        { "id": "2",  "name": "Bagerhat",  "bn_name": "বাগেরহাট",  "upazilas": [
+          { "id": "1", "name": "Bagerhat Sadar", "bn_name": "বাগেরহাট সদর" }
+        ] },
+        { "id": "3",  "name": "Chuadanga", "bn_name": "চুয়াডাঙ্গা", "upazilas": [
+          { "id": "1", "name": "Chuadanga Sadar", "bn_name": "চুয়াডাঙ্গা সদর" }
+        ] },
+        { "id": "4",  "name": "Jashore",   "bn_name": "যশোর",     "upazilas": [
+          { "id": "1", "name": "Jashore Sadar", "bn_name": "যশোর সদর" },
+          { "id": "2", "name": "Sharsha",      "bn_name": "শার্শা" }
+        ] },
+        { "id": "5",  "name": "Jhenaidah", "bn_name": "ঝিনাইদহ",  "upazilas": [
+          { "id": "1", "name": "Jhenaidah Sadar", "bn_name": "ঝিনাইদহ সদর" }
+        ] },
+        { "id": "6",  "name": "Kushtia",   "bn_name": "কুষ্টিয়া",  "upazilas": [
+          { "id": "1", "name": "Kushtia Sadar", "bn_name": "কুষ্টিয়া সদর" },
+          { "id": "2", "name": "Kumarkhali",   "bn_name": "কুমারখালী" }
+        ] },
+        { "id": "7",  "name": "Magura",    "bn_name": "মাগুরা",    "upazilas": [
+          { "id": "1", "name": "Magura Sadar", "bn_name": "মাগুরা সদর" }
+        ] },
+        { "id": "8",  "name": "Meherpur",  "bn_name": "মেহেরপুর",  "upazilas": [
+          { "id": "1", "name": "Meherpur Sadar", "bn_name": "মেহেরপুর সদর" }
+        ] },
+        { "id": "9",  "name": "Narail",    "bn_name": "নড়াইল",    "upazilas": [
+          { "id": "1", "name": "Narail Sadar", "bn_name": "নড়াইল সদর" }
+        ] },
+        { "id": "10", "name": "Satkhira",  "bn_name": "সাতক্ষীরা",  "upazilas": [
+          { "id": "1", "name": "Satkhira Sadar", "bn_name": "সাতক্ষীরা সদর" }
+        ] }
+      ]
+    },
+    {
+      "id": "5", "name": "Sylhet", "bn_name": "সিলেট",
+      "districts": [
+        { "id": "1", "name": "Sylhet",      "bn_name": "সিলেট",      "upazilas": [
+          { "id": "1", "name": "Sylhet Sadar", "bn_name": "সিলেট সদর" },
+          { "id": "2", "name": "Beanibazar",   "bn_name": "বিয়ানীবাজার" },
+          { "id": "3", "name": "Gowainghat",   "bn_name": "গোয়াইনঘাট" }
+        ] },
+        { "id": "2", "name": "Habiganj",    "bn_name": "হবিগঞ্জ",   "upazilas": [
+          { "id": "1", "name": "Habiganj Sadar", "bn_name": "হবিগঞ্জ সদর" }
+        ] },
+        { "id": "3", "name": "Moulvibazar", "bn_name": "মৌলভীবাজার", "upazilas": [
+          { "id": "1", "name": "Moulvibazar Sadar", "bn_name": "মৌলভীবাজার সদর" },
+          { "id": "2", "name": "Sreemangal",        "bn_name": "শ্রীমঙ্গল" }
+        ] },
+        { "id": "4", "name": "Sunamganj",   "bn_name": "সুনামগঞ্জ",  "upazilas": [
+          { "id": "1", "name": "Sunamganj Sadar", "bn_name": "সুনামগঞ্জ সদর" }
+        ] }
+      ]
+    },
+    {
+      "id": "6", "name": "Barisal", "bn_name": "বরিশাল",
+      "districts": [
+        { "id": "1", "name": "Barisal",    "bn_name": "বরিশাল",    "upazilas": [
+          { "id": "1", "name": "Barisal Sadar", "bn_name": "বরিশাল সদর" },
+          { "id": "2", "name": "Bakerganj",     "bn_name": "বাকেরগঞ্জ" }
+        ] },
+        { "id": "2", "name": "Barguna",    "bn_name": "বরগুনা",    "upazilas": [
+          { "id": "1", "name": "Barguna Sadar", "bn_name": "বরগুনা সদর" }
+        ] },
+        { "id": "3", "name": "Bhola",      "bn_name": "ভোলা",      "upazilas": [
+          { "id": "1", "name": "Bhola Sadar", "bn_name": "ভোলা সদর" },
+          { "id": "2", "name": "Charfasson", "bn_name": "চরফ্যাশন" }
+        ] },
+        { "id": "4", "name": "Jhalokati",  "bn_name": "ঝালকাঠি",  "upazilas": [
+          { "id": "1", "name": "Jhalokati Sadar", "bn_name": "ঝালকাঠি সদর" }
+        ] },
+        { "id": "5", "name": "Patuakhali", "bn_name": "পটুয়াখালী", "upazilas": [
+          { "id": "1", "name": "Patuakhali Sadar", "bn_name": "পটুয়াখালী সদর" },
+          { "id": "2", "name": "Kuakata",          "bn_name": "কুয়াকাটা" }
+        ] },
+        { "id": "6", "name": "Pirojpur",   "bn_name": "পিরোজপুর",  "upazilas": [
+          { "id": "1", "name": "Pirojpur Sadar", "bn_name": "পিরোজপুর সদর" }
+        ] }
+      ]
+    },
+    {
+      "id": "7", "name": "Rangpur", "bn_name": "রংপুর",
+      "districts": [
+        { "id": "1", "name": "Rangpur",     "bn_name": "রংপুর",     "upazilas": [
+          { "id": "1", "name": "Rangpur Sadar", "bn_name": "রংপুর সদর" },
+          { "id": "2", "name": "Mithapukur",    "bn_name": "মিঠাপুকুর" }
+        ] },
+        { "id": "2", "name": "Dinajpur",    "bn_name": "দিনাজপুর",  "upazilas": [
+          { "id": "1", "name": "Dinajpur Sadar", "bn_name": "দিনাজপুর সদর" },
+          { "id": "2", "name": "Parbatipur",    "bn_name": "পার্বতীপুর" }
+        ] },
+        { "id": "3", "name": "Gaibandha",   "bn_name": "গাইবান্ধা", "upazilas": [
+          { "id": "1", "name": "Gaibandha Sadar", "bn_name": "গাইবান্ধা সদর" }
+        ] },
+        { "id": "4", "name": "Kurigram",    "bn_name": "কুড়িগ্রাম",  "upazilas": [
+          { "id": "1", "name": "Kurigram Sadar", "bn_name": "কুড়িগ্রাম সদর" }
+        ] },
+        { "id": "5", "name": "Lalmonirhat", "bn_name": "লালমনিরহাট", "upazilas": [
+          { "id": "1", "name": "Lalmonirhat Sadar", "bn_name": "লালমনিরহাট সদর" }
+        ] },
+        { "id": "6", "name": "Nilphamari",  "bn_name": "নীলফামারী",  "upazilas": [
+          { "id": "1", "name": "Nilphamari Sadar", "bn_name": "নীলফামারী সদর" },
+          { "id": "2", "name": "Saidpur",         "bn_name": "সৈয়দপুর" }
+        ] },
+        { "id": "7", "name": "Panchagarh",  "bn_name": "পঞ্চগড়",   "upazilas": [
+          { "id": "1", "name": "Panchagarh Sadar", "bn_name": "পঞ্চগড় সদর" }
+        ] },
+        { "id": "8", "name": "Thakurgaon",  "bn_name": "ঠাকুরগাঁও",  "upazilas": [
+          { "id": "1", "name": "Thakurgaon Sadar", "bn_name": "ঠাকুরগাঁও সদর" }
+        ] }
+      ]
+    },
+    {
+      "id": "8", "name": "Mymensingh", "bn_name": "ময়মনসিংহ",
+      "districts": [
+        { "id": "1", "name": "Mymensingh", "bn_name": "ময়মনসিংহ", "upazilas": [
+          { "id": "1", "name": "Mymensingh Sadar", "bn_name": "ময়মনসিংহ সদর" },
+          { "id": "2", "name": "Trishal",          "bn_name": "ত্রিশাল" },
+          { "id": "3", "name": "Bhaluka",          "bn_name": "ভালুকা" }
+        ] },
+        { "id": "2", "name": "Jamalpur",  "bn_name": "জামালপুর",   "upazilas": [
+          { "id": "1", "name": "Jamalpur Sadar", "bn_name": "জামালপুর সদর" }
+        ] },
+        { "id": "3", "name": "Netrakona", "bn_name": "নেত্রকোণা",   "upazilas": [
+          { "id": "1", "name": "Netrakona Sadar", "bn_name": "নেত্রকোণা সদর" }
+        ] },
+        { "id": "4", "name": "Sherpur",   "bn_name": "শেরপুর",     "upazilas": [
+          { "id": "1", "name": "Sherpur Sadar", "bn_name": "শেরপুর সদর" }
+        ] }
+      ]
+    }
+  ]
+}

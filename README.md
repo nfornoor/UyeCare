@@ -1,345 +1,246 @@
-# ArogyoAI: Clinical AI Diagnostic Platform
+# UyeCare
 
-## Screen Smart. Act Fast. Stay Healthy.
+> Screen Smart. Act Fast. Stay Healthy.
 
-*A Project Proposal for the Infinity AI BuildFest Hackathon, Institute of Information Technology (IIT), Jahangirnagar University*
-
----
-
-# Executive Summary
-
-ArogyoAI is an AI-powered Clinical Decision Support Platform designed to assist patients and healthcare professionals in Bangladesh through intelligent preliminary screening and risk assessment.
-
-The platform functions as a first-line diagnostic assistance system that analyzes patient symptoms, medical reports, and diagnostic images to identify potential health conditions and recommend appropriate medical consultation.
-
-ArogyoAI integrates multiple AI diagnostic modules with adaptive symptom intake, patient history management, and a real-time doctor monitoring dashboard. The platform is designed to enhance healthcare efficiency and support physicians in making faster and more informed clinical decisions.
-
-The system does not replace doctors. Instead, it strengthens healthcare delivery through AI-assisted screening and explainable diagnostic support.
+A clinical AI decision-support platform built for **Infinity AI BuildFest 2025** at the
+Institute of Information Technology, Jahangirnagar University. UyeCare bundles five
+diagnostic ensembles into one web app, routes results to vetted doctors, and ships
+Grad-CAM explainability for every imaging module.
 
 ---
 
-# Problem Statement
+## What it does
 
-Bangladesh faces major healthcare accessibility challenges due to a shortage of doctors and diagnostic infrastructure, especially in rural and peri-urban regions.
+| Module | Models | Conditions |
+|---|---|---|
+| **Chest X-Ray** | DenseNet121 + ResNet50 + ViT-Base | 6 (Pneumonia, Cardiomegaly, Edema, Consolidation, Atelectasis, No Finding) |
+| **ECG Signal** | ResNet + Inception + Transformer | 8 (Normal, AFib, MI, Ischemia, Hypertrophy, …) |
+| **CT Scan** | Isolation Forest + PCA + Autoencoder | 2 (Normal, Anomaly Detected) |
+| **Skin Lesion** | Triple ResNet50/EfficientNet ensemble + Grad-CAM | 7 (Melanoma, BCC, AKIEC, Nevi, Keratosis, DF, Vascular) |
+| **Symptom Checker** | XGBoost + LightGBM + Random Forest | 22 disease categories |
 
-Several key problems motivate the development of ArogyoAI:
-
-- Long waiting times and high consultation costs discourage early disease detection.
-- Many patients cannot determine when professional testing or urgent care is necessary.
-- Diagnostic images and reports are often reviewed late because of specialist shortages.
-- Healthcare systems frequently lack centralized patient monitoring and historical tracking.
-- Delayed diagnosis increases treatment complexity and healthcare burden.
-
-ArogyoAI aims to reduce these gaps by providing intelligent screening support, risk prioritization, and physician-assisted decision support.
-
----
-
-# Core Features
-
-## 1. Adaptive Symptom Questionnaire System
-
-The platform begins with a structured symptom intake process before diagnostic analysis.
-
-### Features
-
-- Dynamic questionnaires adapt according to patient responses.
-- Follow-up questions are generated based on symptom severity, duration, and related conditions.
-- Supports both Bangla and English interaction through Groq API language processing.
-- Recommends appropriate diagnostic tests using symptom clustering and AI reasoning.
+Every module averages **3+ models** before reporting. Ensemble disagreement is surfaced
+as an `inconclusive` flag, and a 0–100 **risk score** is computed and persisted with
+each report.
 
 ---
 
-## 2. AI Diagnostic Modules
+## Quick start
 
-ArogyoAI integrates multiple AI-powered diagnostic systems capable of analyzing medical data and generating confidence-based predictions.
+### Backend
 
-### Chest X-Ray Analysis
+```bash
+cd healthbridge/backend
 
-Uses an ensemble architecture consisting of:
+# Virtual env (optional but recommended)
+python -m venv venv
+venv\Scripts\activate            # Windows
+# source venv/bin/activate       # Linux/Mac
 
-- DenseNet121
-- ResNet50
-- Vision Transformer (ViT-Base)
+pip install -r requirements.txt
+pip install tensorflow --no-cache-dir   # ECG ensemble needs TF; ~600 MB
 
-Detects conditions such as:
+# Environment
+copy .env.example .env           # then fill in GROQ_API_KEY, MONGODB_URL, etc.
 
-- Pneumonia
-- Cardiomegaly
-- Pulmonary Edema
-- Consolidation
-- Atelectasis
+# Seed default accounts (admin + demo patient + demo doctor + 12 reports)
+python create_admin.py
+python seed_demo.py
 
-Supported formats:
+# Run the API server
+uvicorn main:app --reload --port 8000
+```
 
-- JPEG
-- PNG
+API: http://localhost:8000  
+Interactive docs: http://localhost:8000/docs
 
----
+### Frontend
 
-### ECG Signal Analysis
+```bash
+cd healthbridge/frontend
+npm install
+npm run dev
+```
 
-Uses a hybrid architecture combining:
-
-- 1D ResNet
-- Transformer Networks
-
-Classifies ECG conditions including:
-
-- Normal Rhythm
-- Atrial Fibrillation (AF)
-- ST-Elevation
-- Bundle Branch Block
-
-Input format:
-
-- 360 Hz CSV signals
+App: http://localhost:5173
 
 ---
 
-### CT Scan Analysis (Planned Module)
+## Demo credentials
 
-Future implementation using 3D CNN architecture for:
+Seeded by [`healthbridge/backend/seed_demo.py`](healthbridge/backend/seed_demo.py)
+(re-run any time to refresh; users are kept, reports are wiped + reseeded).
 
-- Nodule Detection
-- Mass Detection
-- Tissue Abnormality Localization
-
-Supported formats:
-
-- DICOM
-- PNG Slices
+| Role | Email | Password |
+|---|---|---|
+| Admin | `admin@uyecare.com` | `UyeCare@Admin2025` |
+| Patient (`PAT-001`, 12 demo reports) | `patient@uyecare.com` | `Patient@2025` |
+| Doctor (`DOC-001`, Cardiologist) | `doctor@uyecare.com` | `Doctor@2025` |
 
 ---
 
-### Skin Disease Detection
+## Tech stack
 
-Built using EfficientNet-B3 architecture.
-
-Detects conditions including:
-
-- Melanoma
-- Eczema
-- Psoriasis
-- Acne
-- Other common skin diseases
-
----
-
-# Risk Scoring and Emergency Alert System
-
-Each AI-generated prediction includes:
-
-- Probability distributions
-- Confidence percentages
-- Inconclusive result detection
-
-Predictions below 60% confidence are automatically flagged as inconclusive.
-
-The platform combines:
-
-- Symptom severity
-- Diagnostic results
-- Patient history
-- AI confidence scores
-
-into a unified Overall Risk Score (0-100).
-
-## Risk Classification
-
-| Risk Score | Classification |
-|------------|----------------|
-| 0-30       | Low Risk       |
-| 31-60      | Moderate Risk  |
-| 61-100     | High Risk      |
-
-### High-Risk Alert Actions
-
-- Immediate emergency alert sent to doctors
-- Priority patient highlighting
-- Urgent consultation recommendation
+| Layer | Tech |
+|---|---|
+| Frontend | React 18 · Vite · Tailwind CSS · Zustand · Recharts · GSAP · react-dropzone · react-hot-toast · lucide-react |
+| Backend | FastAPI · Motor (async MongoDB) · Pydantic 2 · python-jose (JWT) · passlib (bcrypt) |
+| Database | MongoDB (collections: `users`, `reports`, `messages`, `health_profiles`, `counters`) |
+| ML — X-Ray | PyTorch (DenseNet121 + ResNet50 + ViT) + Grad-CAM + horizontal-flip TTA |
+| ML — ECG | TensorFlow / Keras (ResNet + Inception + Transformer) with batched window inference |
+| ML — CT Scan | scikit-learn (Isolation Forest + PCA + scaler) |
+| ML — Skin | PyTorch + timm (auto-detects EfficientNet-B0/B1/B3 vs ResNet50) + Grad-CAM + TTA |
+| ML — Symptoms | scikit-learn (XGBoost + LightGBM + Random Forest, 28-feature vector) |
+| AI Chat | Groq API (LLaMA 3.3 70B) |
+| Storage | Cloudinary (X-ray, CT, skin uploads + Grad-CAM PNGs) |
+| Email | Gmail SMTP (doctor approval notifications) |
 
 ---
 
-# Visual Explainability and Transparency
+## Project structure
 
-To improve physician trust and system transparency, ArogyoAI incorporates Explainable AI techniques.
-
-## Grad-CAM Visualization
-
-For X-Ray and Skin Disease modules, the system generates:
-
-- Gradient-weighted Class Activation Maps (Grad-CAM)
-
-These heatmaps highlight image regions that most influenced the AI prediction.
-
-### Benefits
-
-- Improves interpretability
-- Reduces black-box concerns
-- Supports physician validation
-- Increases trust in AI-assisted diagnosis
-
----
-
-# Personalized Health Recommendations
-
-Using Groq API with LLaMA 3 integration, the platform generates evidence-based recommendations based on:
-
-- Patient history
-- Symptoms
-- Risk scores
-- Diagnostic outcomes
-
-### Recommendation Types
-
-- Lifestyle guidance
-- Dietary suggestions
-- Physical activity recommendations
-- Follow-up consultation advice
-
-### Ethical Limitation
-
-The AI system does not:
-
-- Prescribe medication
-- Suggest pharmaceutical drug names
-- Recommend dosages
+```
+UyeCare/
+├── All Disease Checkup/          # Symptom-checker training + trained_models/
+├── ECG/                          # ECG ensemble + test scripts + Trained Model/
+├── X-Ray/                        # X-ray ensemble + test_images_by_class/ + Trained Model/
+├── ct_scan/                      # CT anomaly detector + Models/ + dataset/
+├── skin disease/                 # Skin ensemble package + .pth model files
+├── make_pptx.py                  # Generates UyeCare_Presentation.pptx
+└── healthbridge/                 # The web app
+    ├── backend/                  # FastAPI
+    │   ├── main.py
+    │   ├── config.py             # Resolves model paths to repo root
+    │   ├── database.py           # Motor async client
+    │   ├── auth/                 # JWT auth + role-gated dependencies
+    │   ├── routes/               # analyze, history, doctor, admin, chat, health_profile
+    │   ├── services/
+    │   │   ├── ml/               # xray, ecg, ct_scan, skin, symptoms (lazy-loaded)
+    │   │   ├── groq_service.py   # LLaMA 3.3 chat + recommendation generator
+    │   │   ├── risk_score.py     # 0-100 score from prediction + confidence
+    │   │   ├── cloudinary_service.py
+    │   │   └── email_service.py
+    │   ├── create_admin.py       # Seed admin (run once)
+    │   └── seed_demo.py          # Seed demo patient + doctor + 12 reports
+    └── frontend/                 # React + Vite
+        ├── public/bd-locations.json  # 8 divisions / 64 districts / key upazilas
+        └── src/
+            ├── App.jsx               # Role-gated routes
+            ├── store/authStore.js    # Zustand + persisted JWT
+            ├── services/api.js       # Axios + auto-401 logout + getErrorMessage()
+            ├── components/
+            │   ├── Layout/           # PatientLayout, DoctorLayout, AdminLayout
+            │   │                     # (responsive: mobile drawer + desktop top bar)
+            │   └── common/           # ProfileMenu, ConfidenceBar, RiskBadge, LoadingSpinner
+            └── pages/
+                ├── Landing.jsx       # Expressive design (orange / IBM Plex Mono)
+                ├── auth/             # Login + Register (premium / Apple-inspired)
+                └── patient/, doctor/, admin/  # Neumorphism (teal / Space Mono)
+```
 
 ---
 
-# Doctor Dashboard
+## Design system
 
-A dedicated physician dashboard provides monitoring and clinical review functionality.
+The app deliberately uses **three** distinct visual systems, each pulled from a
+[typeui.sh](https://typeui.sh) spec and translated into CSS utilities in
+[`src/index.css`](healthbridge/frontend/src/index.css):
 
-## Features
+| Surface | System | Colors | Typography |
+|---|---|---|---|
+| Landing page | **Expressive** | Cream `#F1F0EC` + orange `#F97316` + grid pattern | IBM Plex Mono (`.font-plex`) |
+| Auth pages | **Premium** (Apple-inspired) | White + blue `#3B82F6` (login switches to orange) | Inter (`.premium-input`, `.premium-btn`) |
+| Dashboards (patient/doctor/admin) | **Neumorphism** | Warm gray `#E7E5E4` + teal `#006666` | Space Mono (`.font-display`), JetBrains Mono (`.font-caps`) |
 
-### Patient Prioritization
-
-- Patients ranked according to risk score
-- Critical patients visually highlighted
-
-### Individual Patient Reports
-
-Doctors can access:
-
-- AI predictions
-- Confidence scores
-- Grad-CAM visualizations
-- Symptom history
-- Uploaded medical records
-
-### Secure Communication
-
-- In-app doctor-patient messaging
-- Follow-up scheduling
-- Secure consultation support
-
-### AI Feedback Loop
-
-Doctors can:
-
-- Confirm predictions
-- Mark incorrect outputs
-- Provide feedback for future model improvement
+Each system has its own utility prefix (`.neu-*`, `.premium-*`, `.exp-*`) so they don't
+bleed into each other.
 
 ---
 
-# System Architecture
+## Key API endpoints
 
-## Frontend
+| Method | Endpoint | Auth | Purpose |
+|---|---|---|---|
+| POST | `/api/auth/register` | — | Register patient/doctor (doctors → pending approval) |
+| POST | `/api/auth/login` | — | Returns JWT + UserOut |
+| GET  | `/api/auth/me` | user | Current user |
+| PATCH| `/api/auth/me` | user | Edit own profile (whitelisted fields) |
+| POST | `/api/analyze/xray` | user | Chest X-ray ensemble + Grad-CAM |
+| POST | `/api/analyze/ecg` | user | ECG signal ensemble (batched) |
+| POST | `/api/analyze/ct` | user | CT anomaly detection |
+| POST | `/api/analyze/skin` | user | Skin lesion ensemble + Grad-CAM |
+| POST | `/api/analyze/symptoms` | user | Symptom-based prediction + AI-generated prescription |
+| GET  | `/api/history` | user | Patient's report history |
+| GET  | `/api/history/{report_id}` | user | Full report detail |
+| POST | `/api/chat` | user | Groq LLaMA 3 health chat |
+| GET  | `/api/chat/patient/messages` | user | Inbox from doctors (auto-marks read) |
+| GET  | `/api/chat/patient/unread-count` | user | Polled by the patient layout |
+| GET  | `/api/doctor/patients` | doctor | Patient list ranked by max risk |
+| GET  | `/api/doctor/patients/{id}` | doctor | Patient detail + all reports |
+| POST | `/api/doctor/message` | doctor | Send message to patient (optionally re: a specific report) |
+| GET  | `/api/admin/stats` | admin | Platform stats for the admin dashboard |
+| GET  | `/api/admin/users` | admin | All users with report counts |
+| PATCH| `/api/admin/doctors/{id}/approve` | admin | Approve doctor + email notification |
 
-Technologies used:
-
-- React.js
-- HTML
-- Tailwind CSS
-
-Deployment:
-
-- Netlify
-
----
-
-## Backend
-
-Built using:
-
-- FastAPI (Python)
-
-Responsibilities:
-
-- REST API management
-- Authentication
-- AI inference handling
-- Risk alert processing
-
-Deployment:
-
-- Render
+Full schema at http://localhost:8000/docs once the backend is up.
 
 ---
 
-## Machine Learning Stack
+## Features in the app
 
-Framework:
-
-- PyTorch
-
-Models used:
-
-- DenseNet121
-- ResNet50
-- Vision Transformer (ViT-Base)
-- EfficientNet-B3
-- 1D ResNet
-- Transformer Networks
-
----
-
-## AI Language Integration
-
-Groq API with LLaMA 3 supports:
-
-- Symptom understanding
-- Bangla language processing
-- Recommendation generation
+- **5 diagnostic modules**, each an ensemble of 3+ specialist models with disagreement-aware verdicts
+- **Risk score** (0–100, low/moderate/high) attached to every report
+- **Grad-CAM** heatmaps for X-Ray and Skin modules
+- **Adaptive symptom questionnaire** that branches based on chief complaint
+- **Three role-gated portals**: patient, doctor, admin
+- **Doctor approval workflow** with Gmail notifications
+- **In-app messaging** from doctor to patient, with optional report context
+- **Live notification** when new doctor messages arrive (30s polling + toast)
+- **Profile editing** for patients and doctors via avatar menu
+- **Cascading address picker** (Division → District → Upazila → Union) for Bangladesh patients
+- **Responsive layouts** with mobile drawer + desktop top bar across all three portals
+- **Animated dashboards** — line draws over 2.4s, bars stagger in, pulsing latest-point indicator
 
 ---
 
-## Database
+## Configuration (`healthbridge/backend/.env`)
 
-MongoDB Atlas is used for:
+| Variable | Purpose | Default |
+|---|---|---|
+| `MONGODB_URL` | Mongo connection string | `mongodb://localhost:27017` |
+| `DB_NAME` | Mongo database | `healthbridge` |
+| `SECRET_KEY` | JWT signing key | _change in production_ |
+| `GROQ_API_KEY` | LLaMA 3.3 chat (free tier at https://console.groq.com) | required for chat |
+| `GMAIL_USER` / `GMAIL_APP_PASSWORD` | Doctor approval emails | optional |
+| `CLOUDINARY_CLOUD_NAME` / `CLOUDINARY_API_KEY` / `CLOUDINARY_API_SECRET` | Image storage | optional |
 
-- Patient profiles
-- Medical history
-- Diagnostic records
-- Messaging data
-- Doctor management
-
----
-
-# Ethical Commitments and Responsible AI
-
-ArogyoAI is strictly a Clinical Decision Support System and not an autonomous diagnostic authority.
-
-All outputs require physician validation before medical action is taken.
-
-## Ethical Principles
-
-- Confidence scores are always displayed
-- Inconclusive predictions are clearly identified
-- Patient data is securely stored
-- Access control mechanisms protect privacy
-- Doctor-patient communication remains confidential
-- Explainable AI reduces black-box dependency
-- Physicians remain the final decision-makers
+Model paths are resolved automatically from the repo root by
+[`config.py`](healthbridge/backend/config.py) — no need to set them.
 
 ---
 
-# Conclusion
+## Notes on ML model files
 
-ArogyoAI aims to improve healthcare accessibility in Bangladesh through AI-assisted screening, explainable diagnostics, multilingual interaction, and risk-based prioritization.
+The trained weights ship in-tree:
 
-The platform is designed to support healthcare professionals by enabling faster screening, earlier detection, and more informed decision-making.
+- `X-Ray/Trained Model/*.pth` (DenseNet121, ResNet50, ViT-Base)
+- `ECG/Trained Model/*.keras` (ResNet, Inception, Transformer)
+- `ct_scan/Models/*.pkl` and `*.pth`
+- `skin disease/skin_model_package/models/*.pth`
+- `All Disease Checkup/trained_models/*.pkl`
 
-Rather than replacing doctors, ArogyoAI strengthens healthcare systems through responsible and transparent AI integration.
+Models are **lazy-loaded** on first request to each `/api/analyze/*` endpoint so the
+server starts in <1s; first inference per module then takes 10–30s while weights load.
+Subsequent requests use the cached models.
+
+If you switch to Git LFS or external storage, uncomment the corresponding patterns
+in [`.gitignore`](.gitignore).
+
+---
+
+## License & disclaimer
+
+UyeCare is a **decision-support tool**. All results require physician validation.
+The platform does not replace clinical examination.
+
+© 2025 · Institute of Information Technology, Jahangirnagar University.

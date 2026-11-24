@@ -1,0 +1,166 @@
+# =============================================================================
+# Python
+# =============================================================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+.eggs/
+build/
+dist/
+.installed.cfg
+*.manifest
+*.spec
+tempCodeRunnerFile.py
+
+# Virtual Environments
+venv/
+env/
+.venv/
+.env.local
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter / Testing / Typecheck
+.ipynb_checkpoints/
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+
+# =============================================================================
+# Secrets & Credentials (Never commit)
+# =============================================================================
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+secrets/
+credentials.json
+
+# =============================================================================
+# Node.js & Frontend (healthbridge/frontend)
+# =============================================================================
+node_modules/
+.pnp/
+.pnp.js
+.yarn/install-state.gz
+dist/
+dist-ssr/
+.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.local
+healthbridge/frontend/DESIGN.md
+DESIGN.md
+
+# =============================================================================
+# ML Models, Weights & Datasets
+# Excludes heavy binaries (>100MB breaks GitHub push limit)
+# =============================================================================
+*.pth
+*.pt
+*.pkl
+*.h5
+*.keras
+*.onnx
+*.npz
+*.bin
+*.weights
+*.safetensors
+*.ckpt
+
+# Model & dataset directories / heavy files
+ct_scan/Models/anomaly_net_best.pth
+ct_scan/Models/autoencoder_best.pth
+ct_scan/dataset/
+Brain_CTscan/Dataset_sample/
+Brain_CTscan/models/
+
+# Generated ML artifacts / evaluation plots
+X-Ray/hackathon_plots/
+ECG/Final_ECG_Samples/preprocessed/
+ct_scan/preprocessed_batch.png
+ct_scan/dataset_samples.png
+ct_scan/class_distribution.png
+ct_scan/test_results.csv
+All Disease Checkup/trained_models/confusion_matrix.png
+All Disease Checkup/trained_models/feature_importance.png
+**/runs/
+**/checkpoints_tmp/
+mlruns/
+wandb/
+uploads/
+
+# =============================================================================
+# Archives, Compressed Files & Backups
+# =============================================================================
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+*.bak
+*.tmp
+*.pptx.bak
+make_pptx.log
+
+# =============================================================================
+# IDE, Editors & Agent Tools
+# =============================================================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.project
+.classpath
+.settings/
+*.sublime-project
+*.sublime-workspace
+.claude/
+.gemini/
+
+# =============================================================================
+# Operating System
+# =============================================================================
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# =============================================================================
+# Logs & Temp
+# =============================================================================
+*.log
+logs/
+tmp/
+temp/
